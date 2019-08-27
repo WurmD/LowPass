@@ -81,12 +81,12 @@ void main()
 	auto vLow = LowPass(v, w, h, 2);
 
 	cout << "Original: ";
-	for (auto i = 0; i < 30; i++)
+	for (auto i = 100; i < 130; i++)
 		cout << v[i] << " ";
 	cout << endl;
 
 	cout << "LowPass : ";
-	for (auto i = 0; i < 30; i++)
+	for (auto i = 100; i < 130; i++)
 		cout << vLow[i] << " ";
 	cout << endl;
 
