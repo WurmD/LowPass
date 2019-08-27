@@ -71,23 +71,20 @@ vector<unsigned char> LowPass(vector<unsigned char>& source, int w, int h, int r
 void main()
 {
 
-	int w = 100, h = 50;
+	int w = 30, h = 5;
 	vector<unsigned char> v(w*h, 0);
-	for (auto i = 0; i < v.size(); i++)
-	{
-		v[i] = rand() % 256;
-	}
+	v[2 * w + 2] = 255;
 
 	auto vLow = LowPass(v, w, h, 2);
 
 	cout << "Original: ";
-	for (auto i = 100; i < 130; i++)
-		cout << v[i] << " ";
+	for (auto i = 2*w; i < 2*w+30; i++)
+		cout << int(v[i]) << " ";
 	cout << endl;
 
 	cout << "LowPass : ";
-	for (auto i = 100; i < 130; i++)
-		cout << vLow[i] << " ";
+	for (auto i = 2 * w; i < 2 * w + 30; i++)
+		cout << int(vLow[i]) << " ";
 	cout << endl;
 
 }
