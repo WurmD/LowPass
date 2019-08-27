@@ -68,7 +68,7 @@ vector<unsigned char> LowPass(vector<unsigned char>& source, int w, int h, int r
 	return target;
 }
 
-void main()
+int main()
 {
 
 	int w = 30, h = 5;
@@ -87,4 +87,5 @@ void main()
 		cout << int(vLow[i]) << " ";
 	cout << endl;
 
+	return 0;
 }
