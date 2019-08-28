@@ -19,7 +19,7 @@ vector<int> boxesForGauss(float sigma, int n)  // standard deviation, number of 
 
 	vector<int> sizes(n);
 	for (auto i = 0; i < n; i++)
-		sizes.emplace_back(i < m ? wl : wu);
+		sizes[i] = i < m ? wl : wu;
 	return sizes;
 }
 
@@ -71,19 +71,19 @@ vector<unsigned char> LowPass(vector<unsigned char>& source, int w, int h, int r
 int main()
 {
 
-	int w = 30, h = 5;
+	int w = 30, h = 7;
 	vector<unsigned char> v(w*h, 0);
-	v[2 * w + 2] = 255;
+	v[3 * w + 3] = 255;
 
-	auto vLow = LowPass(v, w, h, 2);
+	auto vLow = LowPass(v, w, h, 1);
 
-	cout << "Original: ";
-	for (auto i = 2*w; i < 2*w+30; i++)
+	cout << "Original 4th line: ";
+	for (auto i = 3*w; i < 3*w+30; i++)
 		cout << int(v[i]) << " ";
 	cout << endl;
 
-	cout << "LowPass : ";
-	for (auto i = 2 * w; i < 2 * w + 30; i++)
+	cout << "LowPass 4th line : ";
+	for (auto i = 3 * w; i < 3 * w + 30; i++)
 		cout << int(vLow[i]) << " ";
 	cout << endl;
 
